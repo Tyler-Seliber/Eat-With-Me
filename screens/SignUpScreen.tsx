@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import MyButton from '../components/MyButton';
 import MyField from '../components/MyField';
-// import { getFirstName, signUpWithEmail } from '../services/firebase';
+import { signUpWithEmail } from '../services/firebase';
 
 type ScreenProps = {
   navigation: any
@@ -24,7 +24,7 @@ export default function SignUpScreen({ navigation }: ScreenProps) {
       <MyField title='Email' type='text' onChangeFn={setEmail} />
       <MyField title='Password' type='text' secure={true} onChangeFn={setPassword} />
         <MyButton text="Sign Up" type="primary" size="large" onPressFn={async () => {
-        //   let result = await signUpWithEmail(fName, lName, email, password);
+          let result = await signUpWithEmail(fName, lName, email, password);
         //   if (result === 'success') {
         //     let firstName = await getFirstName();
         //     navigation.navigate("Home", {firstName: firstName});

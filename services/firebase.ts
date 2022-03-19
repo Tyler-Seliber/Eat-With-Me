@@ -19,7 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-export const signUpWithEmail = async (fName, lName, email, password) => {
+export const signUpWithEmail = async (fName: string, lName: string, email:string, password:string) => {
     try {
         const result = await createUserWithEmailAndPassword(auth, email, password);
         console.log(result.user);
