@@ -3,7 +3,7 @@ import { StyleSheet, View, Dimensions} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import MyButton from '../components/MyButton';
 import MyField from '../components/MyField';
-import { signUpWithEmail } from '../services/firebase';
+import { getFirstName, signUpWithEmail } from '../services/firebase';
 
 type ScreenProps = {
   navigation: any
@@ -25,10 +25,10 @@ export default function SignUpScreen({ navigation }: ScreenProps) {
       <MyField title='Password' type='text' secure={true} onChangeFn={setPassword} />
         <MyButton text="Sign Up" type="primary" size="large" onPressFn={async () => {
           let result = await signUpWithEmail(fName, lName, email, password);
-        //   if (result === 'success') {
-        //     let firstName = await getFirstName();
-        //     navigation.navigate("Home", {firstName: firstName});
-        //   }
+          if (result === 'success') {
+            let firstName = await getFirstName();
+            navigation.navigate("Home", {firstName: firstName});
+          }
         }} />
         <View style={{height: Dimensions.get('screen').width * 0.05}}></View>
     </View>

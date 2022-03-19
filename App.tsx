@@ -1,10 +1,13 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import StartUpScreen from './screens/StartUpScreen';
 import LogInScreen from './screens/LogInScreen';
 import SignUpScreen from './screens/SignUpScreen';
+import HomeScreen from './screens/HomeScreen';
+import React from 'react';
+import { logOut } from './services/firebase';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +30,19 @@ export default function App() {
           headerShadowVisible: false,
           title: 'Sign Up'
         }} />
+        <Stack.Screen name="Home" component={HomeScreen} options={({ navigation })=> ({
+          headerStyle: {backgroundColor: 'white'},
+          headerTintColor: '#133C55',
+          headerShadowVisible: false, 
+          title: '',
+          headerBackVisible: false,
+          headerRight: () => (
+            <Button title="Log Out" color={'#133C55'} onPress={async () => {
+              await logOut();
+              navigation.popToTop();
+            }}></Button>
+          )
+        })} />
       </Stack.Navigator>
     </NavigationContainer>
   );
