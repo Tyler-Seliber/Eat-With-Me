@@ -9,7 +9,7 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "optimize": "npx expo-optimize",
-    "predeploy": "npm run optimize && expo build:web",
+    "predeploy": "expo build:web",
     "deploy-hosting": "npm run predeploy && firebase deploy --only hosting",
     "deploy": "npm run predeploy && firebase deploy"
   },
