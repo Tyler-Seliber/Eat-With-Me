@@ -8,8 +8,10 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "predeploy": "expo build:web",
-    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting"
+    "optimize": "npx expo-optimize",
+    "predeploy": "npm run optimize && expo build:web",
+    "deploy-hosting": "npm run predeploy && firebase deploy --only hosting",
+    "deploy": "npm run predeploy && firebase deploy"
   },
   "dependencies": {
     "@expo/vector-icons": "^12.0.5",
