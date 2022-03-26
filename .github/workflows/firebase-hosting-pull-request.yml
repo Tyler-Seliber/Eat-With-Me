@@ -10,7 +10,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
-      - name: Install expo-cli 
       - run: npm install -g expo-cli
       - run: npm run predeploy
       - uses: FirebaseExtended/action-hosting-deploy@v0
