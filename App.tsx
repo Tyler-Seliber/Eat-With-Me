@@ -19,28 +19,28 @@ export default function App() {
         <Stack.Screen name="StartUp" component={StartUpScreen} options={{
           headerShown: false,
         }} />
-         <Stack.Screen name="LogIn" component={LogInScreen} options={{
-          headerStyle: {backgroundColor: 'white'},
+        <Stack.Screen name="LogIn" component={LogInScreen} options={{
+          headerStyle: { backgroundColor: 'white' },
           headerTintColor: '#133C55',
           headerShadowVisible: false,
           title: 'Log In'
         }} />
         <Stack.Screen name="HostMeal" component={HostMealScreen} options={{
-          headerStyle: {backgroundColor: 'white'},
+          headerStyle: { backgroundColor: 'white' },
           headerTintColor: '#133C55',
           headerShadowVisible: false,
           title: 'Host Meal'
         }} />
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{
-          headerStyle: {backgroundColor: 'white'},
+          headerStyle: { backgroundColor: 'white' },
           headerTintColor: '#133C55',
           headerShadowVisible: false,
           title: 'Sign Up'
         }} />
-        <Stack.Screen name="Home" component={HomeScreen} options={({ navigation })=> ({
-          headerStyle: {backgroundColor: 'white'},
+        <Stack.Screen name="Home" component={HomeScreen} options={({ navigation }) => ({
+          headerStyle: { backgroundColor: 'white' },
           headerTintColor: '#133C55',
-          headerShadowVisible: false, 
+          headerShadowVisible: false,
           title: '',
           headerBackVisible: false,
           headerRight: () => (
@@ -50,7 +50,7 @@ export default function App() {
             }}></Button>
           )
         })} />
-       
+
       </Stack.Navigator>
     </NavigationContainer>
   );
