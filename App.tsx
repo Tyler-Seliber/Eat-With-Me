@@ -6,6 +6,7 @@ import StartUpScreen from './screens/StartUpScreen';
 import LogInScreen from './screens/LogInScreen';
 import SignUpScreen from './screens/SignUpScreen';
 import HomeScreen from './screens/HomeScreen';
+import HostMealScreen from './screens/HostMealScreen';
 import React from 'react';
 import { logOut } from './services/firebase';
 
@@ -23,6 +24,12 @@ export default function App() {
           headerTintColor: '#133C55',
           headerShadowVisible: false,
           title: 'Log In'
+        }} />
+        <Stack.Screen name="HostMeal" component={HostMealScreen} options={{
+          headerStyle: {backgroundColor: 'white'},
+          headerTintColor: '#133C55',
+          headerShadowVisible: false,
+          title: 'Host Meal'
         }} />
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{
           headerStyle: {backgroundColor: 'white'},
@@ -43,6 +50,7 @@ export default function App() {
             }}></Button>
           )
         })} />
+       
       </Stack.Navigator>
     </NavigationContainer>
   );
