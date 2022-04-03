@@ -49,13 +49,11 @@ export default MyButton;
 
 const styles = StyleSheet.create({
     primaryContainer: {
-        backgroundColor: '#133C55',
+        backgroundColor: '#F96332',
         paddingHorizontal: 32,
         paddingVertical: 12,
         width: 150,
-        borderRadius: 32,
-        borderColor: '#133C55',
-        borderWidth: 2,
+        borderRadius: 11,
     },
     primaryText: {
         color: 'white',
@@ -68,12 +66,10 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         paddingVertical: 12,
         width: 150,
-        borderRadius: 32,
-        borderColor: '#133C55',
-        borderWidth: 2,
+        borderRadius: 11,
     },
     secondaryText: {
-        color: '#133C55',
+        color: '#F96332',
         fontWeight: 'bold',
         textAlign: 'center',
         fontSize: 16
@@ -83,7 +79,7 @@ const styles = StyleSheet.create({
         paddingVertical: 4,
         width: 75,
         borderRadius: 16,
-        borderWidth: 1,
+        
     },
     smallText: {
         fontSize: 8
@@ -92,8 +88,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 32,
         paddingVertical: 8,
         width: 150,
-        borderRadius: 32,
-        borderWidth: 2,
+        borderRadius: 11,
+       
     },
     mediumText: {
         fontSize: 16
@@ -102,8 +98,8 @@ const styles = StyleSheet.create({
         paddingHorizontal: 48,
         paddingVertical: 12,
         width: 300,
-        borderRadius: 48,
-        borderWidth: 3,
+        borderRadius: 11,
+        
     },
     largeText: {
         fontSize: 24
