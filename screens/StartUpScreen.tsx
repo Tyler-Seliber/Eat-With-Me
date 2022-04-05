@@ -24,7 +24,7 @@ export default function StartUpScreen({ navigation }: ScreenProps) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 0.1,
+        flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
