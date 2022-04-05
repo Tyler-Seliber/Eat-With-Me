@@ -16,6 +16,12 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="HostMeal" component={HostMealScreen} options={{
+          headerStyle: { backgroundColor: 'white' },
+          headerTintColor: '#133C55',
+          headerShadowVisible: false,
+          title: 'Host Meal'
+        }} />
         <Stack.Screen name="StartUp" component={StartUpScreen} options={{
           headerShown: false,
         }} />
@@ -24,12 +30,6 @@ export default function App() {
           headerTintColor: '#133C55',
           headerShadowVisible: false,
           title: 'Log In'
-        }} />
-        <Stack.Screen name="HostMeal" component={HostMealScreen} options={{
-          headerStyle: { backgroundColor: 'white' },
-          headerTintColor: '#133C55',
-          headerShadowVisible: false,
-          title: 'Host Meal'
         }} />
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{
           headerStyle: { backgroundColor: 'white' },

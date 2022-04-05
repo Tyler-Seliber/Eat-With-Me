@@ -1,6 +1,9 @@
 import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, ScrollView } from 'react-native';
 import MyButton from '../components/MyButton';
 import colors from '../config/colors';
+import MyField from '../components/MyField';
+import React, { useState } from 'react';
+
 
 
 type ScreenProps = {
@@ -8,41 +11,44 @@ type ScreenProps = {
 }
 
 export default function LogInScreen({ navigation }: ScreenProps) {
+    const [dish,enterDish] = useState("");
+
     return (
         <SafeAreaView>
-            <View style={styles.topPanelView}>
-                <TouchableOpacity onPress={() => navigation.navigate('')}>
-                    <Text>Menu</Text>
-                </TouchableOpacity>
-                <Text>EWM</Text>
-                <TouchableOpacity onPress={() => navigation.navigate('')}>
-                    <Text>Notifs</Text>
-                </TouchableOpacity>
-            </View>
+           
             <View>
                 <ScrollView>
-                    <Text>Add Dishes</Text>
+                   
                     <View style={{ flexDirection: 'row' }}>
-                        <TextInput></TextInput>
-                        <MyButton></MyButton>
+                        <MyField title="Enter Dish" type="text" secure={false} onChangeFn={enterDish} ></MyField>
+                        <MyButton text="Enter" type="primary" ></MyButton>
+
                     </View>
-                    <View>
-                        {/* area for adding images */}
-                    </View>
-                    <View>
+                    
+                    <View style={{flexDirection:'row'}}>
                         {/* area for setting date */}
+                        <MyField title="What time is the food being served?" type="text" secure={false} onChangeFn={enterDish} ></MyField>
+                        <MyButton text="Enter" type="primary" ></MyButton>
                     </View>
-                    <View>
+                    <View style={{flexDirection:'row'}}>
                         {/* area for setting time */}
+                        <MyField title="What Time?" type="text" secure={false} onChangeFn={enterDish} ></MyField>
+                        <MyButton text="Enter" type="primary" ></MyButton>
                     </View>
-                    <View>
+                    <View style={{flexDirection:'row'}}>
                         {/* area for setting location */}
+                        <MyField title="Where's the Event?" type="text" secure={false} onChangeFn={enterDish} ></MyField>
+                        <MyButton text="Enter" type="primary" ></MyButton>
                     </View>
-                    <View>
+                    <View style={{flexDirection:'row'}}>
                         {/* area for setting number of people */}
+                        <MyField title="How many people are you serving" type="text" secure={false} onChangeFn={enterDish} ></MyField>
+                        <MyButton text="Enter" type="primary" ></MyButton>
                     </View>
-                    <View>
+                    <View style={{flexDirection:'row'}}>
                         {/* area for declaring allergens */}
+                        <MyField title="Are you cooking with any allergens?" type="text" secure={false} onChangeFn={enterDish} ></MyField>
+                        <MyButton text="Enter" type="primary" ></MyButton>
                     </View>
                     <View>
                         {/* area for notes */}
@@ -59,7 +65,8 @@ const styles = StyleSheet.create({
         backgroundColor: colors.secondary,
         flexDirection: 'row',
         alignItems: 'center',
-        width: `${100 * 3}%`,
+        alignContent:'center',
+        width: '100%',
         flex: 1,
     }
 

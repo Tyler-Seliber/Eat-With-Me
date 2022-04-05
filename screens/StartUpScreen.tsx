@@ -64,6 +64,7 @@ const styles = StyleSheet.create({
         width: 331,
         position: 'absolute',
         color: '#F96332',
+        alignSelf: 'center'
         
     },
     fixToText2: {
@@ -83,6 +84,7 @@ const styles = StyleSheet.create({
         width: 331,
         position: 'absolute',
         color: 'white',
+        alignSelf:'center'
         
     },
 });
