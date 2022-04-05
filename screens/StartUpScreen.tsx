@@ -14,9 +14,9 @@ export default function StartUpScreen({ navigation }: ScreenProps) {
             <StatusBar style="auto" />
             <View style={{ height: Dimensions.get('screen').width * 0.6 }}></View>
             <View style={styles.fixToText}>
-                <MyButton type="primary" text="Login Here" size="large" onPressFn={() => navigation.navigate("LogIn")} />
+                <MyButton type="primary" text="Log" size="large" onPressFn={() => navigation.navigate("LogIn")} />
                 <View style={{ height: Dimensions.get('screen').width * 0.05 }}></View>
-                <MyButton type="secondary" text="Sign Up Here" size="large" onPressFn={() => navigation.navigate("SignUp")} />
+                <MyButton type="secondary" text="Sign" size="large" onPressFn={() => navigation.navigate("SignUp")} />
             </View>
         </View>
     );
