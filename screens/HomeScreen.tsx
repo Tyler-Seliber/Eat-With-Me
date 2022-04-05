@@ -12,27 +12,11 @@ type ScreenProps = {
 export default function HomeScreen({ navigation, route }: ScreenProps) {
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.topPanelView}>
-                <TouchableOpacity onPress={() => navigation.navigate('')}>
-                    <Text>Menu</Text>
-                </TouchableOpacity>
-                {/*host meal button- should link to host meal screen */}
-                <MyButton onPressFn={() => navigation.navigate("HostMeal")}></MyButton>
-                <TouchableOpacity onPress={() => navigation.navigate('')}>
-                    <Text>Notifs</Text>
-                </TouchableOpacity>
-            </View>
-            {/*search bar */}
-            <View style={{ flex: 1, width: '100%' }}>
-                <TextInput>whatcha in the mood for?</TextInput>
-            </View>
-            {/*area for meal list */}
-            <View>
-
-            </View>
+            <MyButton type="primary" text="Host" size="small" onPressFn={() => navigation.navigate("HostMeal")}></MyButton>
         </SafeAreaView>
     );
 }
+
 const styles = StyleSheet.create({
     container: {
         backgroundColor: colors.primary,
