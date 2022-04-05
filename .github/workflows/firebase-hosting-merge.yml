@@ -15,7 +15,6 @@ jobs:
         uses: SpicyPizza/create-envfile@v1.3.0
         with:
           envkey_DEBUG: false
-          envkey_SOME_API_KEY: "123456abcdef"
           envkey_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
           envkey_FIREBASE_AUTH_DOMAIN: ${{ secrets.FIREBASE_AUTH_DOMAIN }}
           envkey_FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
