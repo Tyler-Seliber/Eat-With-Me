@@ -22,4 +22,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_EAT_WITH_ME_DEPLOY_TEST }}'
           channelId: live
           projectId: eat-with-me-deploy-test
+      - name: Deploy to Firebase Hosting  
         run: firebase deploy
