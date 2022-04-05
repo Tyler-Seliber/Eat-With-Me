@@ -38,6 +38,7 @@ jobs:
         with:
           expo-version: latest
       - name: Expo build
+        run: npm run optimize
         run: npm run predeploy
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
