@@ -10,7 +10,6 @@ jobs:
   node_env_setup:
     runs-on: ubuntu-latest
     steps:
-      1
       - uses: actions/setup-node@v3
         with:
             # node-version: '14'
