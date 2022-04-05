@@ -1,9 +1,12 @@
+import { Foundation } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 import React from "react";
-import { View, Dimensions, StyleSheet, Text, SafeAreaView } from "react-native";
+import { View, Dimensions, StyleSheet, Text, SafeAreaView, ImageBackground} from "react-native";
 import MyButton from '../components/MyButton';
-import colors from '../config/colors';
-
+import food from '../assets/food.png';
+import {useFonts, CinzelDecorative_400Regular, CinzelDecorative_700Bold }from '@expo-google-fonts/cinzel-decorative';
+import AppLoading from "expo-app-loading";
+import { color } from 'react-native-elements/dist/helpers';
 
 
 type ScreenProps = {
@@ -11,34 +14,75 @@ type ScreenProps = {
 }
 
 export default function StartUpScreen({ navigation }: ScreenProps) {
+    
+    let [isLoaded] = useFonts({
+        CinzelDecorative_400Regular,
+        CinzelDecorative_700Bold
+    });
+
+    if(!isLoaded){
+        return <AppLoading />
+    }
     return (
         <SafeAreaView style={styles.container}>
-        
-            <Text style={{color: 'white', fontSize:40,  }}>Eat With Me</Text>
-          
+            <ImageBackground source={food} style={{ width: '100%', height: '110%', justifyContent: 'flex-end', alignItems: 'center'}}> 
+
+                <Text style={styles.fixToText2}>EWM</Text>
+                <Text style={styles.fixToText}>EWM</Text>
                 <MyButton type="primary" text="Login" size="large" onPressFn={() => navigation.navigate("LogIn")} />
-                
+                <View style={{height:20}}/>
                 <MyButton type="secondary" text="Sign Up" size="large" onPressFn={() => navigation.navigate("SignUp")} />
-            
-        
+            </ImageBackground>
         </SafeAreaView>
     );
 }
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: colors.primary,
-        alignItems: 'center',
+        //backgroundColor: colors.primary,
+        //alignContent: 'center',
         justifyContent: 'flex-end',
         padding: 20,
         flex:1,
-        flexDirection: 'column',
-    
-       
+        flexDirection: 'column'
+
     },
     fixToText: {
         flexDirection: 'column',
         justifyContent: 'space-between',
         alignItems: 'center',
+        fontFamily: 'CinzelDecorative_700Bold',
+        fontWeight: '700',
+        fontSize: 126,
+        fontStyle: 'normal',
+        lineHeight: 168,
+        display: 'flex',
+        textAlign: 'center',
+        top: 241,
+        left: 29,
+        height: 172,
+        width: 331,
+        position: 'absolute',
+        color: '#F96332',
+        
+    },
+    fixToText2: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        fontFamily: 'CinzelDecorative_700Bold',
+        fontWeight: '700',
+        fontSize: 131,
+        fontStyle: 'normal',
+        lineHeight: 175,
+        display: 'flex',
+        textAlign: 'center',
+        top: 241,
+        left: 27,
+        height: 172,
+        width: 331,
+        position: 'absolute',
+        color: 'white',
+        
     },
 });

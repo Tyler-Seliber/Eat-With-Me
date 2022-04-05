@@ -8,8 +8,8 @@ export default {
     "orientation": "portrait",
     "icon": "./assets/logo.png",
     "splash": {
-      "image": "./assets/logo.png",
-      "resizeMode": "contain",
+      "image": "./assets/food.png",
+      "resizemode": "cover",
       "backgroundColor": "#ffffff"
     },
     "updates": {

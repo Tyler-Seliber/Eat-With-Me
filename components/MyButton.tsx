@@ -50,16 +50,16 @@ export default MyButton;
 const styles = StyleSheet.create({
     primaryContainer: {
         backgroundColor: '#F96332',
-        paddingHorizontal: 32,
+        paddingHorizontal: 12,
         paddingVertical: 12,
-        width: 150,
+        width: 30,
         borderRadius: 11,
     },
     primaryText: {
         color: 'white',
         fontWeight: 'bold',
         textAlign: 'center',
-        fontSize: 16
+        fontSize: 12,
     },
     secondaryContainer: {
         backgroundColor: 'white',
@@ -99,9 +99,9 @@ const styles = StyleSheet.create({
         paddingVertical: 12,
         width: 300,
         borderRadius: 11,
-        
     },
     largeText: {
         fontSize: 24
     },
+    
 });
