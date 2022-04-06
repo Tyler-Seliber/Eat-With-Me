@@ -19,19 +19,20 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-      <Stack.Screen name="StartUp" component={StartUpScreen} options={{
-          headerShown: false,
-        }} />
-      <Stack.Screen name="ViewMeal" component={ViewMealScreen} options={{
+      <Stack.Screen name="ViewMeal" component={ViewMealScreen} options={({navigation}) => ({
           headerStyle: { backgroundColor: 'white' },
           headerTintColor: '#133C55',
           headerShadowVisible: false,
           headerBackVisible: true,
-          title: 'View Meal'
+          title: 'View Meal',
+          headerLeft:()=> (
+            <TouchableOpacity style={{height: '35%', width: '60%', justifyContent:'flex-start', alignContent:"center"}} onPress={() => navigation.navigate("ViewMeal")}>
+              <Text style={{fontSize:55}}>≡</Text>
+            </TouchableOpacity>
+          )
 
-        }} />
-      
-      <Stack.Screen name="Home" component={HomeScreen} options={({ navigation }) => ({
+        })} />
+        <Stack.Screen name="Home" component={HomeScreen} options={({ navigation }) => ({
           headerStyle: { backgroundColor: 'white' },
           headerTintColor: '#133C55',
           headerShadowVisible: false,
@@ -43,9 +44,17 @@ export default function App() {
             }}></Button>
           ),
           headerLeft:()=> (
-            <TouchableOpacity style={{height: '35%', width: '40%'}} onPress={() => navigation.navigate("ViewMeal")}></TouchableOpacity>
+            <TouchableOpacity style={{height: '35%', width: '60%', justifyContent:'flex-start', alignContent:"center"}} onPress={() => navigation.navigate("ViewMeal")}>
+              <Text style={{fontSize:55}}>≡</Text>
+            </TouchableOpacity>
           )
         })} />
+      <Stack.Screen name="StartUp" component={StartUpScreen} options={{
+          headerShown: false,
+        }} />
+      
+      
+      
         
         <Stack.Screen name="LogIn" component={LogInScreen} options={{
           headerStyle: { backgroundColor: 'transparent'},

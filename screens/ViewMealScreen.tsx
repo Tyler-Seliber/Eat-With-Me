@@ -1,9 +1,10 @@
-import { SafeAreaView, View, TouchableOpacity, Text, TextInput, StyleSheet, ScrollView, ImageBackground } from 'react-native';
+import { SafeAreaView, View, TouchableOpacity, Text, TextInput, Image, StyleSheet, ScrollView, ImageBackground } from 'react-native';
 import MyButton from '../components/MyButton';
 import colors from '../config/colors';
 import MyField from '../components/MyField';
 import React, { useState } from 'react';
 import food from '../assets/pizza.png';
+import location from '../assets/location.png';
 
 type ScreenProps = {
   navigation: any
@@ -37,6 +38,17 @@ export default function ViewMealScreen({ navigation }: ScreenProps) {
             <Text style={styles.blackTextBold}>About Meal:</Text>
             <Text style={styles.grayTextReg}>Just a casual get together to meet some new people</Text>
           </View>
+          <TouchableOpacity style={{flexDirection:'row', flexWrap:'wrap', width:"100%", padding:15}} onPress={() => navigation.navigate("ViewMeal")}>
+                    <View style={{flex:.5}} >
+                    <Image source={location} style={{height:'150%', width:'20%'}}/>
+                    </View>
+                    <View style={{flexDirection:'column', padding:10}}>
+                        {/*location info*/}
+                        <Text>604 River Terrace</Text>
+                        <Text>Suite 4</Text>
+                        <Text style={{color:colors.primary}}>Get Directions</Text>
+                    </View>
+                </TouchableOpacity>
       </View>
     );
 }
