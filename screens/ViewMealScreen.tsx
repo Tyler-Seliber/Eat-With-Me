@@ -12,21 +12,26 @@ type ScreenProps = {
 
 export default function ViewMealScreen({ navigation }: ScreenProps) {
     return (
-      <View style={styles.columnContainer}>
-            <ImageBackground source={food} style={[styles.columnContainer, {width: '120%', height: '60%', top: -20}]}> 
+      <ScrollView style={{backgroundColor: 'white'}}>
+            <ImageBackground source={food} style={[styles.columnContainer, {width: '100%', height: '80%', top: -20}]}> 
 
+            <View style={{top: 150, alignItems:'center'}}>
               <Text style={styles.whiteTextBold}>Homemade Pizza</Text>
-              <Text style={styles.grayTextBold}>Hosted by User </Text>
-              <View style={styles.rowContainer}>
-                <Text style={styles.whiteTextReg}> 7:30 </Text>
+              <Text style={styles.gray_whiteTextBold}>Hosted by User </Text>
+              <View style={[styles.rowContainer, {top:-25}]}>
+                <Text style={styles.whiteTextReg}>   7:30 </Text>
+                <Text>                     </Text>
                 <Text style={styles.whiteTextReg}> 5/6 </Text>
+                <Text>                     </Text>
                 <Text style={styles.whiteTextReg}> $0 </Text>
               </View>
-
+            </View>
           <View style={styles.rowContainer}>
-                <Text style={styles.whiteTextReg}> Wed 2/16 </Text>
-                <Text style={styles.whiteTextReg}> Seats Available </Text>
-                <Text style={styles.whiteTextReg}> Fee </Text>
+                <Text style={styles.white_smallTextReg}> Wed 2/16 </Text>
+                <Text>             </Text>
+                <Text style={styles.white_smallTextReg}> Seats Available </Text>
+                <Text>             </Text>
+                <Text style={styles.white_smallTextReg}> Fee </Text>
           </View>
             </ImageBackground>
           <View style={{alignItems: 'center', justifyContent: 'space-evenly', padding: 20, flex:1, flexDirection: 'row', backgroundColor:'white'}} >
@@ -38,9 +43,9 @@ export default function ViewMealScreen({ navigation }: ScreenProps) {
             <Text style={styles.blackTextBold}>About Meal:</Text>
             <Text style={styles.grayTextReg}>Just a casual get together to meet some new people</Text>
           </View>
-          <TouchableOpacity style={{flexDirection:'row', flexWrap:'wrap', width:"100%", padding:15}} onPress={() => navigation.navigate("ViewMeal")}>
+          <TouchableOpacity style={{flexDirection:'row', flexWrap:'wrap', width:"100%", padding:15, backgroundColor:'white'}} onPress={() => navigation.navigate("ViewMeal")}>
                     <View style={{flex:.5}} >
-                    <Image source={location} style={{height:'150%', width:'20%'}}/>
+                    <Image source={location} style={{height:'20%', width:'20%'}}/>
                     </View>
                     <View style={{flexDirection:'column', padding:10}}>
                         {/*location info*/}
@@ -49,14 +54,14 @@ export default function ViewMealScreen({ navigation }: ScreenProps) {
                         <Text style={{color:colors.primary}}>Get Directions</Text>
                     </View>
                 </TouchableOpacity>
-      </View>
+      </ScrollView>
     );
 }
 const styles = StyleSheet.create({
   rowContainer: {
       alignItems: 'center',
       justifyContent: 'space-evenly',
-      padding: 20,
+      padding: 10,
       flex:1,
       flexDirection: 'row'
 
@@ -66,7 +71,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-evenly',
     padding: 20,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    
   },
   whiteTextBold:{
     color:'white',
@@ -78,8 +84,8 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: 'bold'
   },
-  grayTextBold:{
-    color:'gray',
+  gray_whiteTextBold:{
+    color:'white',
     fontSize: 18,
     fontWeight: 'bold',
     fontStyle:"italic"
@@ -93,6 +99,11 @@ const styles = StyleSheet.create({
   blackTextBold:{
     color:'black',
     fontSize: 27,
+    fontWeight: 'bold'
+  },
+  white_smallTextReg:{
+    color:'white',
+    fontSize: 15,
     fontWeight: 'bold'
   }
 });

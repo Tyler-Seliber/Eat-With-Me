@@ -43,9 +43,9 @@ export default function HomeScreen({ navigation, route }: ScreenProps) {
             </View>
 
             <ScrollView style={{width:'85%', padding:20}}>
-                <TouchableOpacity style={{flexDirection:'row', flexWrap:'wrap', width:"100%", borderColor:'black', borderWidth:1}} onPress={() => navigation.navigate("ViewMeal")}>
+                <TouchableOpacity style={{flexDirection:'row', flexWrap:'wrap', width:"100%", borderColor:'black', borderWidth:1, borderRadius: 20}} onPress={() => navigation.navigate("ViewMeal")}>
                     <View style={{flex:.5}}>
-                    <Image source={pizza} style={{height:'100%', width:'100%'}}/>
+                    <Image source={pizza} style={{height:'100%', width:'100%', borderTopLeftRadius: 20, borderBottomLeftRadius: 20}}/>
                     </View>
                     <View style={{flexDirection:'column', padding:10}}>
                         {/*meal info */}
