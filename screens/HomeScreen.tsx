@@ -15,15 +15,7 @@ export default function HomeScreen({ navigation, route }: ScreenProps) {
     const [searchText, enterSearch] = useState("");
     return (
         <SafeAreaView style={styles.container}>
-<<<<<<< Updated upstream
             <MyButton type="primary" text="Host" size="medium" onPressFn={() => navigation.navigate("HostMeal")}></MyButton>
-=======
-            <MyButton type="primary" text="Host" size="large" onPressFn={() => navigation.navigate("HostMeal")}></MyButton>
-            <View style={{flexDirection:'row', alignItems:'center'}}>
-                <MyField title="search bar" type="string" secure={false}  onChangeFn={enterSearch}/>
-                <MyButton type="orangeiconContainer" text="Host" onPressFn={() => navigation.navigate("ViewMeal")}/>
-            </View>
->>>>>>> Stashed changes
         </SafeAreaView>
     );
 }

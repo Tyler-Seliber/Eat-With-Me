@@ -30,7 +30,7 @@ export default function ViewMealScreen({ navigation }: ScreenProps) {
         </View>
         <View style={{alignItems: 'center', justifyContent: 'space-evenly', padding: 20, flex:1, flexDirection: 'row', backgroundColor:'white'}} >
           <MyButton type="primary" size="large" text="Reserve" />
-          <MyButton type="icon" text="♥"  style={{color:"white"}}/>
+          <MyButton type="icon" text="♥"/>
           <MyButton type="icon" text="✉" />
           </View>
           <View style={{alignItems: 'center', justifyContent: 'space-evenly', padding: 20, flex:1, flexDirection: 'column', backgroundColor:'white'}}>
