@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Dimensions} from 'react-native';
+import { StyleSheet, View, Dimensions,SafeAreaView} from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 import MyButton from '../components/MyButton';
 import MyField from '../components/MyField';
 import { getFirstName, signUpWithEmail } from '../services/firebase';
+import colors from '../config/colors';
 
 type ScreenProps = {
   navigation: any
@@ -17,8 +18,10 @@ export default function SignUpScreen({ navigation }: ScreenProps) {
 
   return (
     <>
+   
+    <SafeAreaView style={styles.orangecontainer}>
     <StatusBar style="light" />
-    <View style={styles.container}>
+    <View style={styles.whitecontainer}>
       <MyField title='First Name' type='text' onChangeFn={setFName} />
       <MyField title='Last Name' type='text' onChangeFn={setLName} />
       <MyField title='Email' type='text' onChangeFn={setEmail} />
@@ -32,15 +35,24 @@ export default function SignUpScreen({ navigation }: ScreenProps) {
         }} />
         <View style={{height: Dimensions.get('screen').width * 0.05}}></View>
     </View>
+    </SafeAreaView>
     </>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
+  orangecontainer: {
+      backgroundColor: colors.primary,
+      alignItems: 'center',
+      justifyContent: 'center',
+      padding: 15,
+      flex:1,
+  },
+  whitecontainer: {
+    backgroundColor: colors.secondary,
     alignItems: 'center',
     justifyContent: 'center',
-  },
+    padding: 15,
+    flex:1,
+},
 });
