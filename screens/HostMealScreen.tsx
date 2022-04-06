@@ -8,7 +8,7 @@ type ScreenProps = {
     navigation: any
 }
 
-export default function LogInScreen({ navigation }: ScreenProps) {
+export default function HostMealScreen({ navigation }: ScreenProps) {
     const [dish,enterDish] = useState("");
     const [date,enterDate] = useState("");
     const [startTime,enterSTime] = useState("");
@@ -67,6 +67,7 @@ export default function LogInScreen({ navigation }: ScreenProps) {
                     </View>
 
                     <View style={styles.screenContainer}><Button title="submit" onPress={async () => { hostEvent(dish,date,startTime,endTime,location,guest,allergens,notes) }}/></View>
+                    <View style={styles.screenContainer}><Button title="view Meal" onPress={async () => {navigation.navigate("ViewMeal")  }}/></View>
 
                 </ScrollView>
             </View>

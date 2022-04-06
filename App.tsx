@@ -9,18 +9,29 @@ import HomeScreen from './screens/HomeScreen';
 import HostMealScreen from './screens/HostMealScreen';
 import React from 'react';
 import { logOut } from './services/firebase';
-
+import ViewMealScreen from './screens/ViewMealScreen';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+
+      
+
+
         <Stack.Screen name="HostMeal" component={HostMealScreen} options={{
           headerStyle: { backgroundColor: 'white' },
           headerTintColor: '#133C55',
           headerShadowVisible: false,
           title: 'Host Meal'
+        }} />
+
+        <Stack.Screen name="ViewMeal" component={ViewMealScreen} options={{
+          headerStyle: { backgroundColor: 'white' },
+          headerTintColor: '#133C55',
+          headerShadowVisible: false,
+          title: 'View Meal'
         }} />
         <Stack.Screen name="StartUp" component={StartUpScreen} options={{
           headerShown: false,

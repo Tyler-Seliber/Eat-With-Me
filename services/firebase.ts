@@ -162,3 +162,64 @@ export const addMeal = async(dish:string, allergen: string) => {
 
 }
 
+export const getEvent = async (id: string) => {
+    try {
+        var meal;
+        const eventRef = doc(firestore, 'events', id);
+        const eventSnap = await getDoc(eventRef);
+
+        if (eventSnap.exists()) {
+            console.log('event data', eventSnap.data());
+            // console.log('meal', eventSnap.data()['meal']);
+            const mealRef = eventSnap.data()['meal'];
+            const mealSnap = await getDoc(mealRef);
+            
+            if (mealSnap.exists()) {
+                console.log('meal data', mealSnap.data());
+                meal = mealSnap.data();
+
+                const dishRef = mealSnap.data()['entree'];
+                const dishSnap = await getDoc(dishRef);
+
+                const ingredientRef = mealSnap.data()['allergens'];
+                const ingredientSnap = await getDoc(ingredientRef);
+
+                if (dishSnap.exists()) {
+                    console.log('dish data', dishSnap.data());
+                    meal['dish'] = dishSnap.data()['name'];
+                } else {
+                    console.log('dish not found');
+                }
+
+                if (ingredientSnap.exists()) {
+                    console.log('ingredient data', ingredientSnap.data());
+                    meal['allergen'] = ingredientSnap.data();
+                } else {
+                    console.log('ingredient not found');
+                }
+            } else {
+                console.log('meal does not exist');
+            }
+        } else {
+            console.log('no such document!');
+        }
+        // console.log(eventRef.get('meal'));
+        return eventRef;
+        // const q = query(
+        //     collection(firestore, "events"),
+        //     where("id", "==", id)
+        // );
+
+        // const querySnapshot = await getDocs(q);
+        // querySnapshot.forEach((doc) => {
+        //     console.log(doc.data()['meals'])
+        //     meal = doc.data()['meals'];
+        // });
+        // console.log(meal);
+        // return meal;
+
+    } catch (e) {
+        console.log(e);
+    }
+}
+
