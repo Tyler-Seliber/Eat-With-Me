@@ -96,3 +96,58 @@ export const getFirstName = async () => {
 
 // CREATE A MEAL // --------------------------------------------------------------
 
+export const hostEvent = async (dish:string,date: string, start_time: string,end_time:string,address: string, guest: number, allergen: string,notes: string) => {
+    try {
+        const data = {capacity: guest, attendees: null, fee: null, location: address, meal: addMeal(dish,allergen), startTime: start_time, endTime: end_time, note: notes}
+        const docRef = await addDoc(collection(firestore, "events"), data);
+    } catch (e) {
+        console.log(e);
+        return e
+    }
+}
+
+export const addIngredients = async(allergen: string) => {
+    try {
+        const data = {name: allergen}
+        const docRef = await addDoc(collection(firestore, "ingredients"), data);
+        return docRef
+    } catch (e) {
+        console.log(e);
+        return e
+    }
+}
+
+export const addDish = async(dish:string, allergen: string) => {
+    try {
+        const data = {name: dish, ingredients: addIngredients(allergen)}
+        const docRef = await addDoc(collection(firestore, "dish"), data);
+        return docRef
+    } catch (e) {
+        console.log(e);
+        return e
+    }
+}
+
+export const addMeal = async(dish:string, allergen: string) => {
+    try {
+        const dishRef = addDish(dish,allergen);
+        const q = query(
+            collection(firestore, "dish"), 
+            where("name", "==", dish)
+        );
+        let ingRef = ""
+        const querySnapshot = await getDocs(q);
+        querySnapshot.forEach((doc) => {
+            ingRef =  doc.data()["ingredients"];
+        });
+
+        const data = {entree: dishRef, allergens: ingRef}
+        const docRef = await addDoc(collection(firestore, "meals"), data);
+        return docRef
+    } catch (e) {
+        console.log(e);
+        return e
+    }   
+
+}
+
