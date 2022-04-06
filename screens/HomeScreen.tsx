@@ -12,7 +12,7 @@ type ScreenProps = {
 export default function HomeScreen({ navigation, route }: ScreenProps) {
     return (
         <SafeAreaView style={styles.container}>
-            <MyButton type="primary" text="Host" size="small" onPressFn={() => navigation.navigate("HostMeal")}></MyButton>
+            <MyButton type="primary" text="Host" size="medium" onPressFn={() => navigation.navigate("HostMeal")}></MyButton>
         </SafeAreaView>
     );
 }
