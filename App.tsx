@@ -19,6 +19,18 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+      <Stack.Screen name="StartUp" component={StartUpScreen} options={{
+          headerShown: false,
+        }} />
+      <Stack.Screen name="ViewMeal" component={ViewMealScreen} options={{
+          headerStyle: { backgroundColor: 'white' },
+          headerTintColor: '#133C55',
+          headerShadowVisible: false,
+          headerBackVisible: true,
+          title: 'View Meal'
+
+        }} />
+      
       <Stack.Screen name="Home" component={HomeScreen} options={({ navigation }) => ({
           headerStyle: { backgroundColor: 'white' },
           headerTintColor: '#133C55',
@@ -31,27 +43,16 @@ export default function App() {
             }}></Button>
           ),
           headerLeft:()=> (
-            <MyButton type="icon" text= "⥱" onPress={() => navigation.navigate("ViewMeal")}>
-
-            </MyButton>
+            <TouchableOpacity style={{height: '35%', width: '40%'}} onPress={() => navigation.navigate("ViewMeal")}></TouchableOpacity>
           )
         })} />
-      <Stack.Screen name="ViewMeal" component={ViewMealScreen} options={{
-          headerStyle: { backgroundColor: 'white' },
-          headerTintColor: '#133C55',
-          headerShadowVisible: false,
-          title: 'View Meal',
-          headerBackVisible:true,
-        }} />
-        <Stack.Screen name="StartUp" component={StartUpScreen} options={{
-          headerShown: false,
-        }} />
+        
         <Stack.Screen name="LogIn" component={LogInScreen} options={{
           headerStyle: { backgroundColor: 'transparent'},
           headerTintColor: colors.secondary,
           headerShadowVisible: false,
+          headerTransparent: true,
           title: 'Log In',
-          headerBackVisible:true,
         }} />
         <Stack.Screen name="HostMeal" component={HostMealScreen} options={{
           headerStyle: { backgroundColor: 'white' },
@@ -60,12 +61,13 @@ export default function App() {
           headerBackVisible:true,
           title: 'Host Meal'
         }} />
+        
         <Stack.Screen name="SignUp" component={SignUpScreen} options={{
-          headerStyle: { backgroundColor: 'white' },
-          headerTintColor: '#133C55',
+          headerStyle: { backgroundColor: 'transparent' },
+          headerTintColor: colors.secondary,
           headerShadowVisible: false,
+          headerTransparent: true,
           title: 'Sign Up',
-          headerBackVisible:true,
         }} />
 
       </Stack.Navigator>
